@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcome_nav"
+    app:startDestination="@+id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.prasa.navsample.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_list_to_my_detail"
+            app:destination="@id/detailFragment" />
+
+        <action
+            android:id="@+id/action_main_to_second_activity"
+            app:destination="@id/secondActivity" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+
+
+        <action
+            android:id="@+id/action_mainFragment_to_about_us"
+            app:destination="@id/about_us" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="myname"
+            android:defaultValue="Prasan Pani"
+            app:argType="string" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.example.prasa.navsample.ui.age.AskMyAgeFragment"
+        android:label="fragment_age"
+        tools:layout="@layout/fragment_age">
+        <argument
+            android:name="myname"
+            android:defaultValue="Prasan Pani"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_ageFragment_to_welcomeWithAgeFragment"
+            app:destination="@id/welcomeWithAgeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.prasa.navsample.ui.age.AskMyAddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address">
+        <argument
+            android:name="myaddress"
+            android:defaultValue="Chiba-Ken, Ichikawa-Shi"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_addressFragment_to_welcomeWithAddressFragment"
+            app:destination="@id/welcomeWithAddressFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/welcomeWithAgeFragment"
+        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeWithAgeFragment"
+        android:label="fragment_welcome_with_age"
+        tools:layout="@layout/fragment_welcome_with_age">
+
+        <argument
+            android:name="myname"
+            android:defaultValue="Prasan Pani"
+            app:argType="string" />
+        <argument
+            android:name="myage"
+            android:defaultValue="28"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/welcomeWithAddressFragment"
+        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeWithAddressFragment"
+        android:label="fragment_welcome_with_age"
+        tools:layout="@layout/fragment_welcome_with_age">
+
+        <argument
+            android:name="myname"
+            android:defaultValue="Prasan Pani"
+            app:argType="string" />
+        <argument
+            android:name="myage"
+            android:defaultValue="28"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_welcomeWithAddressFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeActivity"
+        android:label="second_activity"
+        tools:layout="@layout/welcome_me_activity">
+        <argument
+            android:name="myname"
+            android:defaultValue="Prasan Pani"
+            app:argType="string" />
+    </activity>
+
+    <activity
+        android:id="@+id/about_us"
+        android:name="com.example.prasa.navsample.ui.welcome.AboutUs"
+        android:label="AboutUsActivity">
+        <argument
+            android:name="name"
+            android:defaultValue="About Us"
+            app:argType="string" />
+        <argument
+            android:name="page_name"
+            android:defaultValue="about us"
+            app:argType="string" />
+    </activity>
+
+
+</navigation>
